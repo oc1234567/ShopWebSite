@@ -4,6 +4,7 @@
 <body>
 <li>哈哈哈哈</li>
 <li>呵呵呵呵</li>
+<?php phpinfo()?>
 <?php
   echo "Hello world<br>";
   echo "这是一个", "字符串", "<br>";
