@@ -10,4 +10,14 @@ class Country extends ActiveRecord
     {
         return 'Country';
     }
+    /*
+    rules() must to be implemented in Country class, because CountryController actionCreate() use Country class to generate a model instance; 
+    */
+    public function rules()
+    {
+        return [
+            [['code', 'name'], 'safe'],
+            ['population', 'integer']
+        ];
+    }
 }

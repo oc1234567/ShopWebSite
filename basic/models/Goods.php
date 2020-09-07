@@ -10,4 +10,13 @@ class Goods extends ActiveRecord
     {
         return 'GOODS';
     }
+
+    public function rules()
+    {
+        return [
+            [['id'], 'integer'],
+            [['gname', 'gprice', 'gdescription', 'gpast_due'], 'safe'],
+        ];
+    }
+
 }

@@ -14,17 +14,6 @@ class CountrySearch extends Country
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['code', 'name'], 'safe'],
-            [['population'], 'integer'],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class

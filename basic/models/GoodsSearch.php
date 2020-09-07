@@ -14,17 +14,6 @@ class GoodsSearch extends Goods
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
-        return [
-            [['id'], 'integer'],
-            [['gname', 'gprice', 'gdescription', 'gpast_due'], 'safe'],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
