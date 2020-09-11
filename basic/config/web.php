@@ -46,13 +46,19 @@ $config = [
             ],
         ],
         'db' => $db,
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     'showScriptName' => false,
-        //     'rules' => [
-        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\goods'],
-        //     ],
-        // ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\goods'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\products'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\shop-index'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\index-pos'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\size-product'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\product-color'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api\product-size'],
+            ],
+        ],
         
     ],
     'params' => $params,
