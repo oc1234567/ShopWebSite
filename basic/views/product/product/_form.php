@@ -14,29 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'brand_id')->textInput() ?>
-
-    <?= $form->field($model, 'one_category_id')->textInput() ?>
-
-    <?= $form->field($model, 'two_category_id')->textInput() ?>
-
-    <?= $form->field($model, 'three_category_id')->textInput() ?>
-
-    <?= $form->field($model, 'warehouse_id')->textInput() ?>
-
     <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'ori_price')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
-
     <?= $form->field($model, 'shelf_life')->textInput() ?>
 
     <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'is_new')->textInput() ?>
-
-    <?= $form->field($model, 'is_reduce')->textInput() ?>
 
     <?= $form->field($model, 'create_at')->textInput() ?>
 

@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\WarehouseProductSearch */
+/* @var $searchModel app\models\customer\CustomerSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Warehouse Products';
+$this->title = 'Customers';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="warehouse-product-index">
+<div class="customer-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Warehouse Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Customer', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,8 +27,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
-            'current_cnt',
+            'nick_name',
+            'avatar_url:url',
+            'gender',
+            'province',
+            //'city',
+            //'country',
+            //'openid',
+            //'sessionkey',
+            //'mobile_phone',
+            //'login_name',
+            //'password_hash',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

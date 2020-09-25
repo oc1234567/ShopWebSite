@@ -4,12 +4,12 @@ namespace app\models\product;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\product\WarehouseProduct;
+use app\models\product\CategoryProduct;
 
 /**
- * WarehouseProductSearch represents the model behind the search form of `app\models\WarehouseProduct`.
+ * CategoryProductSearch represents the model behind the search form of `app\models\product\CategoryProduct`.
  */
-class WarehouseProductSearch extends WarehouseProduct
+class CategoryProductSearch extends CategoryProduct
 {
     /**
      * {@inheritdoc}
@@ -17,8 +17,7 @@ class WarehouseProductSearch extends WarehouseProduct
     public function rules()
     {
         return [
-            [['id', 'current_cnt'], 'integer'],
-            [['name'], 'safe'],
+            [['category_id', 'product_id'], 'integer'],
         ];
     }
 
@@ -40,7 +39,7 @@ class WarehouseProductSearch extends WarehouseProduct
      */
     public function search($params)
     {
-        $query = WarehouseProduct::find();
+        $query = CategoryProduct::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +57,9 @@ class WarehouseProductSearch extends WarehouseProduct
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'current_cnt' => $this->current_cnt,
+            'category_id' => $this->category_id,
+            'product_id' => $this->product_id,
         ]);
-
-        $query->andFilterWhere(['like', 'name', $this->name]);
 
         return $dataProvider;
     }

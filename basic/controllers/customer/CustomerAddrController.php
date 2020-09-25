@@ -1,18 +1,18 @@
 <?php
 
-namespace app\controllers\market;
+namespace app\controllers\customer;
 
 use Yii;
-use app\models\market\MarketProduct;
-use app\models\market\MarketProductSearch;
+use app\models\customer\CustomerAddr;
+use app\models\customer\CustomerAddrSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MarketProducController implements the CRUD actions for MarketProduct model.
+ * CustomerAddrController implements the CRUD actions for CustomerAddr model.
  */
-class MarketProducController extends Controller
+class CustomerAddrController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class MarketProducController extends Controller
     }
 
     /**
-     * Lists all MarketProduct models.
+     * Lists all CustomerAddr models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new MarketProductSearch();
+        $searchModel = new CustomerAddrSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,30 +45,29 @@ class MarketProducController extends Controller
     }
 
     /**
-     * Displays a single MarketProduct model.
-     * @param integer $market_id
-     * @param integer $product_id
+     * Displays a single CustomerAddr model.
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($market_id, $product_id)
+    public function actionView($id)
     {
         return $this->render('view', [
-            'model' => $this->findModel($market_id, $product_id),
+            'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new MarketProduct model.
+     * Creates a new CustomerAddr model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new MarketProduct();
+        $model = new CustomerAddr();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'market_id' => $model->market_id, 'product_id' => $model->product_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -77,19 +76,18 @@ class MarketProducController extends Controller
     }
 
     /**
-     * Updates an existing MarketProduct model.
+     * Updates an existing CustomerAddr model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $market_id
-     * @param integer $product_id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($market_id, $product_id)
+    public function actionUpdate($id)
     {
-        $model = $this->findModel($market_id, $product_id);
+        $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'market_id' => $model->market_id, 'product_id' => $model->product_id]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -98,31 +96,29 @@ class MarketProducController extends Controller
     }
 
     /**
-     * Deletes an existing MarketProduct model.
+     * Deletes an existing CustomerAddr model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $market_id
-     * @param integer $product_id
+     * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($market_id, $product_id)
+    public function actionDelete($id)
     {
-        $this->findModel($market_id, $product_id)->delete();
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the MarketProduct model based on its primary key value.
+     * Finds the CustomerAddr model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $market_id
-     * @param integer $product_id
-     * @return MarketProduct the loaded model
+     * @param integer $id
+     * @return CustomerAddr the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($market_id, $product_id)
+    protected function findModel($id)
     {
-        if (($model = MarketProduct::findOne(['market_id' => $market_id, 'product_id' => $product_id])) !== null) {
+        if (($model = CustomerAddr::findOne($id)) !== null) {
             return $model;
         }
 

@@ -4,12 +4,12 @@ namespace app\models\product;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\product\Product;
+use app\models\product\BrandProduct;
 
 /**
- * ProductSearch represents the model behind the search form of `app\models\product\Product`.
+ * BrandProductSearch represents the model behind the search form of `app\models\product\BrandProduct`.
  */
-class ProductSearch extends Product
+class BrandProductSearch extends BrandProduct
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,7 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'shelf_life'], 'integer'],
-            [['name', 'desc', 'create_at', 'indate_at', 'production_date', 'due_date', 'modified_at'], 'safe'],
-            [['price', 'ori_price'], 'number'],
+            [['brand_id', 'product_id'], 'integer'],
         ];
     }
 
@@ -41,7 +39,7 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = BrandProduct::find();
 
         // add conditions that should always apply here
 
@@ -59,19 +57,9 @@ class ProductSearch extends Product
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
-            'price' => $this->price,
-            'ori_price' => $this->ori_price,
-            'shelf_life' => $this->shelf_life,
-            'create_at' => $this->create_at,
-            'indate_at' => $this->indate_at,
-            'production_date' => $this->production_date,
-            'due_date' => $this->due_date,
-            'modified_at' => $this->modified_at,
+            'brand_id' => $this->brand_id,
+            'product_id' => $this->product_id,
         ]);
-
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'desc', $this->desc]);
 
         return $dataProvider;
     }

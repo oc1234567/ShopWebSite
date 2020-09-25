@@ -12,9 +12,7 @@ use Yii;
  * @property int|null $parent_id
  * @property string|null $pic
  *
- * @property Product[] $products
- * @property Product[] $products0
- * @property Product[] $products1
+ * @property CategoryProduct[] $products
  */
 class ProductCategory extends \yii\db\ActiveRecord
 {
@@ -39,6 +37,13 @@ class ProductCategory extends \yii\db\ActiveRecord
         ];
     }
 
+    public function extraFields() {
+        return [
+            'categoryProducts',
+            'subCategories'
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -53,32 +58,16 @@ class ProductCategory extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Products]].
+     * Gets query for [[CategoryProducts]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getProducts()
-    {
-        return $this->hasMany(Product::className(), ['one_category_id' => 'id']);
+    public function getCategoryProducts() {
+        return $this->hasMany(CategoryProduct::className(), ["category_id" => 'id']);
     }
 
-    /**
-     * Gets query for [[Products0]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProducts0()
-    {
-        return $this->hasMany(Product::className(), ['two_category_id' => 'id']);
+    public function getSubCategories() {
+        return $this->hasMany(ProductCategory::className(), ["parent_id" => "id"]);   
     }
 
-    /**
-     * Gets query for [[Products1]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProducts1()
-    {
-        return $this->hasMany(Product::className(), ['three_category_id' => 'id']);
-    }
 }

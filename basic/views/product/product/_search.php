@@ -19,29 +19,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name') ?>
 
-    <?= $form->field($model, 'brand_id') ?>
+    <?php echo $form->field($model, 'price') ?>
 
-    <?= $form->field($model, 'one_category_id') ?>
-
-    <?= $form->field($model, 'two_category_id') ?>
-
-    <?php // echo $form->field($model, 'three_category_id') ?>
-
-    <?php // echo $form->field($model, 'warehouse_id') ?>
-
-    <?php // echo $form->field($model, 'price') ?>
-
-    <?php // echo $form->field($model, 'ori_price') ?>
-
-    <?php // echo $form->field($model, 'status') ?>
+    <?php echo $form->field($model, 'ori_price') ?>
 
     <?php // echo $form->field($model, 'shelf_life') ?>
 
     <?php // echo $form->field($model, 'desc') ?>
-
-    <?php // echo $form->field($model, 'is_new') ?>
-
-    <?php // echo $form->field($model, 'is_reduce') ?>
 
     <?php // echo $form->field($model, 'create_at') ?>
 

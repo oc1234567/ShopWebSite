@@ -1,15 +1,15 @@
 <?php
 
-namespace app\models\product;
+namespace app\models\customer;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\product\Product;
+use app\models\customer\CustomerAddr;
 
 /**
- * ProductSearch represents the model behind the search form of `app\models\product\Product`.
+ * CustomerAddrSearch represents the model behind the search form of `app\models\customer\CustomerAddr`.
  */
-class ProductSearch extends Product
+class CustomerAddrSearch extends CustomerAddr
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,8 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'shelf_life'], 'integer'],
-            [['name', 'desc', 'create_at', 'indate_at', 'production_date', 'due_date', 'modified_at'], 'safe'],
-            [['price', 'ori_price'], 'number'],
+            [['id', 'customer_id', 'is_default'], 'integer'],
+            [['zip', 'province', 'city', 'district', 'address', 'telephone', 'shipping_user_name'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = CustomerAddr::find();
 
         // add conditions that should always apply here
 
@@ -60,18 +59,17 @@ class ProductSearch extends Product
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'ori_price' => $this->ori_price,
-            'shelf_life' => $this->shelf_life,
-            'create_at' => $this->create_at,
-            'indate_at' => $this->indate_at,
-            'production_date' => $this->production_date,
-            'due_date' => $this->due_date,
-            'modified_at' => $this->modified_at,
+            'customer_id' => $this->customer_id,
+            'is_default' => $this->is_default,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'desc', $this->desc]);
+        $query->andFilterWhere(['like', 'zip', $this->zip])
+            ->andFilterWhere(['like', 'province', $this->province])
+            ->andFilterWhere(['like', 'city', $this->city])
+            ->andFilterWhere(['like', 'district', $this->district])
+            ->andFilterWhere(['like', 'address', $this->address])
+            ->andFilterWhere(['like', 'telephone', $this->telephone])
+            ->andFilterWhere(['like', 'shipping_user_name', $this->shipping_user_name]);
 
         return $dataProvider;
     }

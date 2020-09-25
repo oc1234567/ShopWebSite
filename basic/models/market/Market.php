@@ -34,6 +34,12 @@ class Market extends \yii\db\ActiveRecord
         ];
     }
 
+    public function extraFields() {
+        return [
+            'marketProducts'
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */

@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\product\Product */
+/* @var $model app\models\order\CartProduct */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Products', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Cart Products', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="product-view">
+<div class="cart-product-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,16 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
+            'customer_id',
+            'product_id',
+            'product_num',
             'price',
-            'ori_price',
-            'shelf_life',
-            'desc:ntext',
-            'create_at',
-            'indate_at',
-            'production_date',
-            'due_date',
-            'modified_at',
+            'add_time',
         ],
     ]) ?>
 

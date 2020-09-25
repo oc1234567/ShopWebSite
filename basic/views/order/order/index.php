@@ -4,18 +4,18 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\product\ProductSearch */
+/* @var $searchModel app\models\order\OrderSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Products';
+$this->title = 'Orders';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="product-index">
+<div class="order-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Order', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -27,16 +27,18 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'name',
-            'price',
-            'ori_price',
-            'shelf_life',
-            'desc:ntext',
-            //'create_at',
-            //'indate_at',
-            //'production_date',
-            //'due_date',
-            //'modified_at',
+            'customer_id',
+            'address_id',
+            'payment_money',
+            'payment_method',
+            //'shipping_comp_name',
+            //'shipping_sn',
+            //'shipping_time',
+            //'pay_time',
+            //'receive_time',
+            //'created_at',
+            //'status',
+            //'comment',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

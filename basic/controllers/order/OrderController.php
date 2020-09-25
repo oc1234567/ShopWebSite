@@ -1,18 +1,18 @@
 <?php
 
-namespace app\controllers\product;
+namespace app\controllers\order;
 
 use Yii;
-use app\models\product\WarehouseProduct;
-use app\models\product\WarehouseProductSearch;
+use app\models\order\Order;
+use app\models\order\OrderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * WarehouseProductController implements the CRUD actions for WarehouseProduct model.
+ * OrderController implements the CRUD actions for Order model.
  */
-class WarehouseProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Lists all WarehouseProduct models.
+     * Lists all Order models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new WarehouseProductSearch();
+        $searchModel = new OrderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Displays a single WarehouseProduct model.
+     * Displays a single Order model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Creates a new WarehouseProduct model.
+     * Creates a new Order model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new WarehouseProduct();
+        $model = new Order();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Updates an existing WarehouseProduct model.
+     * Updates an existing Order model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Deletes an existing WarehouseProduct model.
+     * Deletes an existing Order model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class WarehouseProductController extends Controller
     }
 
     /**
-     * Finds the WarehouseProduct model based on its primary key value.
+     * Finds the Order model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return WarehouseProduct the loaded model
+     * @return Order the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = WarehouseProduct::findOne($id)) !== null) {
+        if (($model = Order::findOne($id)) !== null) {
             return $model;
         }
 

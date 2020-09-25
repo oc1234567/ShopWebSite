@@ -1,15 +1,15 @@
 <?php
 
-namespace app\models\product;
+namespace app\models\order;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\product\Product;
+use app\models\order\OrderDetail;
 
 /**
- * ProductSearch represents the model behind the search form of `app\models\product\Product`.
+ * OrderDetailSearch represents the model behind the search form of `app\models\order\OrderDetail`.
  */
-class ProductSearch extends Product
+class OrderDetailSearch extends OrderDetail
 {
     /**
      * {@inheritdoc}
@@ -17,9 +17,8 @@ class ProductSearch extends Product
     public function rules()
     {
         return [
-            [['id', 'shelf_life'], 'integer'],
-            [['name', 'desc', 'create_at', 'indate_at', 'production_date', 'due_date', 'modified_at'], 'safe'],
-            [['price', 'ori_price'], 'number'],
+            [['id', 'order_id', 'product_id', 'product_cnt', 'product_size', 'product_type'], 'integer'],
+            [['product_price'], 'number'],
         ];
     }
 
@@ -41,7 +40,7 @@ class ProductSearch extends Product
      */
     public function search($params)
     {
-        $query = Product::find();
+        $query = OrderDetail::find();
 
         // add conditions that should always apply here
 
@@ -60,18 +59,13 @@ class ProductSearch extends Product
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'price' => $this->price,
-            'ori_price' => $this->ori_price,
-            'shelf_life' => $this->shelf_life,
-            'create_at' => $this->create_at,
-            'indate_at' => $this->indate_at,
-            'production_date' => $this->production_date,
-            'due_date' => $this->due_date,
-            'modified_at' => $this->modified_at,
+            'order_id' => $this->order_id,
+            'product_id' => $this->product_id,
+            'product_cnt' => $this->product_cnt,
+            'product_price' => $this->product_price,
+            'product_size' => $this->product_size,
+            'product_type' => $this->product_type,
         ]);
-
-        $query->andFilterWhere(['like', 'name', $this->name])
-            ->andFilterWhere(['like', 'desc', $this->desc]);
 
         return $dataProvider;
     }

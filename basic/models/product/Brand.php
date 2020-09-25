@@ -13,7 +13,7 @@ use Yii;
  * @property string $logo
  * @property string|null $desc
  *
- * @property Product[] $products
+ * @property BrandProduct[] $products
  */
 class Brand extends \yii\db\ActiveRecord
 {
@@ -54,12 +54,12 @@ class Brand extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Products]].
+     * Gets query for [[BrandProducts]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getProducts()
+    public function getBrandProducts()
     {
-        return $this->hasMany(Product::className(), ['brand_id' => 'id']);
+        return $this->hasMany(BrandProduct::className(), ['brand_id' => 'id']);
     }
 }
