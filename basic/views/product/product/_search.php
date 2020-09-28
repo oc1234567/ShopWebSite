@@ -27,8 +27,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'desc') ?>
 
-    <?php // echo $form->field($model, 'create_at') ?>
-
     <?php // echo $form->field($model, 'indate_at') ?>
 
     <?php // echo $form->field($model, 'production_date') ?>

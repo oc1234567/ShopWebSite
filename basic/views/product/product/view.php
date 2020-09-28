@@ -35,7 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'ori_price',
             'shelf_life',
             'desc:ntext',
-            'create_at',
             'indate_at',
             'production_date',
             'due_date',
