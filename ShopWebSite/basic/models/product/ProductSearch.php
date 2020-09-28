@@ -18,7 +18,7 @@ class ProductSearch extends Product
     {
         return [
             [['id', 'shelf_life'], 'integer'],
-            [['name', 'desc', 'create_at', 'indate_at', 'production_date', 'due_date', 'modified_at'], 'safe'],
+            [['name', 'desc', 'indate_at', 'production_date', 'due_date', 'modified_at'], 'safe'],
             [['price', 'ori_price'], 'number'],
         ];
     }
@@ -63,7 +63,6 @@ class ProductSearch extends Product
             'price' => $this->price,
             'ori_price' => $this->ori_price,
             'shelf_life' => $this->shelf_life,
-            'create_at' => $this->create_at,
             'indate_at' => $this->indate_at,
             'production_date' => $this->production_date,
             'due_date' => $this->due_date,

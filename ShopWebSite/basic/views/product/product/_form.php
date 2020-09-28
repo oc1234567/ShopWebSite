@@ -22,8 +22,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'desc')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'create_at')->textInput() ?>
-
     <?= $form->field($model, 'indate_at')->textInput() ?>
 
     <?= $form->field($model, 'production_date')->textInput() ?>

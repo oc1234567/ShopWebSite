@@ -15,6 +15,9 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'qlfjzmEy3h8LoSq0_3pbL3Zwf0P3JaVm',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -43,14 +46,28 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+        // 'urlManager' => [
+        //     'enablePrettyUrl' => true,
+        //     'showScriptName' => false,
+        //     'rules' => [
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\goods'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\products'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\shop-index'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\index-pos'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\size-product'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\product-color'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\product-size'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\count-product'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\customer'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\customer-addr'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\order'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\order-detail'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\cart-product'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\product-category'],
+        //         ['class' => 'yii\rest\UrlRule', 'controller' => 'api\market'],
+        //     ],
+        // ],
+        
     ],
     'params' => $params,
 ];
