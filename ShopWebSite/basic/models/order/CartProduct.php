@@ -5,6 +5,8 @@ namespace app\models\order;
 use Yii;
 use app\models\customer\Customer;
 use app\models\product\Product;
+use app\models\product\ProductColor;
+use app\models\product\ProductSize;
 
 /**
  * This is the model class for table "cart_product".
@@ -35,12 +37,13 @@ class CartProduct extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['customer_id', 'product_id', 'price'], 'required'],
-            [['customer_id', 'product_id', 'product_num'], 'integer'],
-            [['price'], 'number'],
+            [['customer_id', 'product_id', 'color_id', 'size_id'], 'required'],
+            [['customer_id', 'product_id', 'color_id', 'size_id', 'product_num'], 'integer'],
             [['add_time'], 'safe'],
             [['customer_id'], 'exist', 'skipOnError' => true, 'targetClass' => Customer::className(), 'targetAttribute' => ['customer_id' => 'id']],
             [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Product::className(), 'targetAttribute' => ['product_id' => 'id']],
+            [['color_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductColor::className(), 'targetAttribute' => ['color_id' => 'id']],
+            [['size_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductSize::className(), 'targetAttribute' => ['size_id' => 'id']],
         ];
     }
 
@@ -54,7 +57,8 @@ class CartProduct extends \yii\db\ActiveRecord
             'customer_id' => 'Customer ID',
             'product_id' => 'Product ID',
             'product_num' => 'Product Num',
-            'price' => 'Price',
+            'color_id' => 'Color ID',
+            'size_id' => 'Size ID',
             'add_time' => 'Add Time',
         ];
     }

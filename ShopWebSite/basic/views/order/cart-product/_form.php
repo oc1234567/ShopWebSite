@@ -18,7 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'product_num')->textInput() ?>
 
-    <?= $form->field($model, 'price')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'color_id')->textInput() ?>
+
+    <?= $form->field($model, 'size_id')->textInput() ?>
 
     <?= $form->field($model, 'add_time')->textInput() ?>
 

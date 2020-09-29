@@ -21,9 +21,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'product_id') ?>
 
-    <?= $form->field($model, 'product_num') ?>
+    <?= $form->field($model, 'size_id') ?>
 
-    <?= $form->field($model, 'price') ?>
+    <?= $form->field($model, 'color_id') ?>
+
+    <?= $form->field($model, 'product_num') ?>
 
     <?php // echo $form->field($model, 'add_time') ?>
 
